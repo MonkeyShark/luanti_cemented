@@ -1,7 +1,8 @@
 add_library(lstrpack STATIC lstrpack.c)
 target_include_directories(lstrpack
-	PUBLIC
+		PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}
-	PRIVATE
+		PRIVATE
 		${LUA_INCLUDE_DIR}
 )
+target_link_libraries(lstrpack PRIVATE ${LUA_LIBRARY})
