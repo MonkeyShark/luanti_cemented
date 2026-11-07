@@ -332,7 +332,7 @@ void LocalPlayer::move(f32 dtime, Environment *env,
 	const v3f initial_speed = m_speed;
 
 
-	StepUpMode step_up_mode = StepUpMode::LEGACY;
+	StepUpMode step_up_mode = StepUpMode::RIGID;
 	if (m_cao != nullptr) {
 		step_up_mode = m_cao->getProperties().step_up_mode;
 	}
@@ -957,7 +957,7 @@ void LocalPlayer::old_move(f32 dtime, Environment *env,
 	const v3f initial_position = position;
 	const v3f initial_speed = m_speed;
 
-	StepUpMode step_up_mode = StepUpMode::LEGACY;
+	StepUpMode step_up_mode = StepUpMode::RIGID;
 	if (m_cao != nullptr) {
 		step_up_mode = m_cao->getProperties().step_up_mode;
 	}
@@ -1225,7 +1225,7 @@ void LocalPlayer::handleAutojump(f32 dtime, Environment *env,
 	v3f jump_pos = initial_position + v3f(0.0f, jump_height, 0.0f);
 	v3f jump_speed = initial_speed;
 
-	StepUpMode step_up_mode = StepUpMode::LEGACY;
+	StepUpMode step_up_mode = StepUpMode::RIGID;
 	if (m_cao != nullptr) {
 		step_up_mode = m_cao->getProperties().step_up_mode;
 	}

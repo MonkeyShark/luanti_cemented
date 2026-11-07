@@ -20,7 +20,7 @@ TEST_CASE("Given a node definition, "
 	ContentFeatures f;
 	f.name = "default:stone";
 	for (TileDef &tiledef : f.tiledef)
-		tiledef.name = "default_stone.png";
+		tiledef.name = "cemented_stone.png";
 	f.is_ground_content = true;
 
 	std::ostringstream os(std::ios::binary);

@@ -45,7 +45,7 @@ local test_object = {
 	},
 	tiles = {
 		{name = "stairs_glass_split.png", backface_culling = true},
-		{name = "default_glass.png", backface_culling = true},
+		{name = "cemented_glass.png", backface_culling = true},
 		{name = "stairs_glass_stairside.png^[transformFX", backface_culling = true}
 	},
 	on_place = function(itemstack, placer)

@@ -39,7 +39,7 @@ core.register_node("basenodes:dirt_with_snow", {
 	tiles ={"basenodes_dirt_with_snow.png",
 		-- a little dot on the bottom to distinguish it from dirt
 		"default_dirt.png^basenodes_dirt_with_snow_bottom.png",
-		{name = "default_dirt.png^default_snow_side.png",
+		{name = "default_dirt.png^cemented_snow_side.png",
 		tileable_vertical = false}},
 	groups = {crumbly=3, soil=1},
 })
@@ -113,7 +113,7 @@ core.register_node("basenodes:jungleleaves", {
 
 core.register_node("basenodes:pine_tree", {
 	description = "Pine Tree Trunk",
-	tiles = {"default_pine_tree_top.png", "default_pine_tree_top.png", "default_pine_tree.png"},
+	tiles = {"cemented_pine_log_top.png", "cemented_pine_log_top.png", "cemented_pine_log.png"},
 	is_ground_content = false,
 	groups = {choppy=2,oddly_breakable_by_hand=1},
 })

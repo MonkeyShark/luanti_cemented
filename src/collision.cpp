@@ -562,9 +562,11 @@ CollisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
 		const v3f old_speed_f = *speed_f;
 
 		// Set the speed component that caused the collision to zero
-		if (step_up && (step_up_mode == StepUpMode::LEGACY ||
-				(step_up_mode == StepUpMode::FLOATY && speed_f->Y <= 0.0f) ||
-				(step_up_mode == StepUpMode::RIGID && speed_f->Y == 0.0f))) {
+		const bool may_step_up = (step_up_mode == StepUpMode::RIGID)
+				? (speed_f->Y == 0.0f)
+				: (speed_f->Y <= 0.0f);
+
+		if (step_up && may_step_up) {
 			// Special case: Handle stairs
 			nearest_info.is_step_up = true;
 		} else if (nearest_collided == COLLISION_AXIS_X) {
@@ -631,9 +633,9 @@ CollisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
 				mbox.MinEdge += *pos_f;
 				mbox.MaxEdge += *pos_f;
 			}
-			if (std::fabs(sbox.MaxEdge.Y - mbox.MinEdge.Y) < 0.05f) {
 				// This code is technically only required if `box_info.is_step_up == true`.
 				// However, players rely on this check/condition to climb stairs faster. See PR #10587.
+			if (std::fabs(sbox.MaxEdge.Y - mbox.MinEdge.Y) < 0.05f && speed_f->Y <= 0.0f) {
 				result.touching_ground = true;
 				result.standing_on_object = box_info.isObject();
 			}
